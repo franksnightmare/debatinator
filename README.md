@@ -1,6 +1,5 @@
 # debatinator
-It's a debate machine or something
-^ Ignore this
+It's a debate machine or something <- Ignore this
 
 # Poor man's debating technologies by not IBM
 
