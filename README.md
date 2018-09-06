@@ -9,8 +9,9 @@ In order to make proper decisions it is important to take these viewpoints into 
 Finding the pros and cons of an idea will ideally give all arguments for all sides and so a general overview of all viewpoints.
 
 ## State of the Art
-IBM's machine goes through many text sources to extract arguments pro and con topics.
-One of IBM's previous creations, the jeopardy playing Watson, was recreated by searching wikipedia as a poor man's alternative.
+IBM's machine goes through many text sources to extract arguments pro and con about a topic.
+One of IBM's previous creations, the jeopardy playing Watson, was recreated in a simpler way.
+Poor man's Watson gives similar answers simply by searching wikipedia.
 
 ## New Idea
 Instead of using IBM's intensive method we will aim to get the same pros and cons by using widely available and structured information on the internet.
