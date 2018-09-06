@@ -18,7 +18,8 @@ Instead of using IBM's intensive method we will aim to get the same pros and con
 This is similar to the poor man's Watson and would show that there are simpler ways of getting the pros and cons of topics.
 
 ## Results
-???
+The system should be able to give pros and cons for topics that it is asked about.
+It may not always give correct answers, but it should often be able to identify the topic correctly and find some of the pros and cons.
 
 ## Relevance
 Tools such as IBM's debating technologies can help many different decision makers in society.
