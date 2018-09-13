@@ -24,9 +24,7 @@ def main():
 	response = GoogleSearch().search("site:procon.org " + keyword, num_results = 1)
 	arguments = {"pro":[], "con":[]}
 	
-	# Work in progress and also a mess
-	# On top of that either google or procon.org does not like the scraping and maybe blocked me once?
-	# 
+	# Google does not like the repeated use of their search engine
 	for result in response.results:
 		print(("Title: " + result.title).encode(sys.stdout.encoding, errors='replace'))
 		content = ''.join(repr(result.getMarkup()).split('\n'))
