@@ -1,6 +1,15 @@
 # debatinator
 It's a debate machine or something <- Ignore this
 
+# Websites that we are using
+## For more American subjects
+Pages from procon.org can have structured pros and cons with bold titles.
+Either these pros and cons or maybe soon(tm) condensed arguments from quotes (just the first or last sentence really).
+
+## For European and other subjects
+Pages from prosancons.com have nice structured pros and cons.
+Procon.org is very focussed on American topics and so Brexit or other more European topics are not represented.
+
 # Poor man's debating technologies by not IBM
 
 ## Problem
