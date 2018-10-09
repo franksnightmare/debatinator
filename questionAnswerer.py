@@ -16,8 +16,10 @@ def main():
 	for keyword in keywords:
 		print("\n" + keyword)
 		fstream.write(keyword + '\n')
-		response = searcher.searchGoogle(keyword)
-		arguments = parser.getArguments(response)
+		responseA = searcher.searchGoogle('procon.org', keyword)
+		responseB = searcher.searchGoogle('prosancons.com', keyword)
+		
+		arguments = parser.getFirstArgument(responseA, responseB)
 		Qwriter.writeArguments(fstream, arguments)
 	
 	fstream.close()

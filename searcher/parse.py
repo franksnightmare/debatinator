@@ -2,6 +2,7 @@ import sys
 import re
 import urllib2
 import math
+import helper as helper
 from bs4 import BeautifulSoup
 from pprint import pprint
 from threading import Thread
@@ -51,6 +52,26 @@ def getArguments(response):
 				arguments["con"].append(arg.group(1))
 		break
     return arguments
+
+def getArguments2(content, site):
+	if (site == 'prosancons.org'):
+		return helper.prosanconsdotorg(content)
+	
+	return helper.procondotorg(content)
+
+def getFirstArgument(responseA, responseB):
+    responses = helper.divideResponses(responseA, responseB)
+    
+    for response in responses:
+		result = response['result']
+		print(("Title: " + result.title).encode(sys.stdout.encoding, errors='replace'))
+		content = ''.join(repr(result.getMarkup()).split('\n'))
+		
+		arguments = getArguments2(content, response['site'])
+		if (arguments):
+			return arguments
+		
+    return {"pro":[], "con":[]}
 
 def printArguments(arguments):
 	print("Pro:")

@@ -36,8 +36,13 @@ class GoogleSearch:
             response.close()
             
             if total is None:
-                totalText = soup.select(GoogleSearch.TOTAL_SELECTOR)[0].children.next().encode('utf-8')
-                total = long(re.sub("[', ]", "", re.search("(([0-9]+[', ])*[0-9]+)", totalText).group(1)))
+                soupSelector = soup.select(GoogleSearch.TOTAL_SELECTOR)
+                
+                if len(soupSelector):
+                    totalText = soupSelector[0].children.next().encode('utf-8')
+                    total = long(re.sub("[', ]", "", re.search("(([0-9]+[', ])*[0-9]+)", totalText).group(1)))
+                else:
+                    total = 0
             
             results = self.parseResults(soup.select(GoogleSearch.RESULT_SELECTOR))
             
@@ -112,5 +117,5 @@ class SearchResult:
     def __repr__(self):
         return self.__str__()
 
-def searchGoogle(keyword):
-    return GoogleSearch().search('site:procon.org arguments \"' + keyword + '\"', num_results = 10)
+def searchGoogle(site, keyword):
+    return GoogleSearch().search('site:' + site + ' arguments \"' + keyword + '\"', num_results = 10)

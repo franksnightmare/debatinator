@@ -8,7 +8,8 @@ def main():
 	
 	print(keyword)
 	
-	response = searcher.searchGoogle(keyword)
+	response = searcher.searchGoogle('procon.org', keyword)
+	
 	arguments = parser.getArguments(response)
 	parser.printArguments(arguments)
 
