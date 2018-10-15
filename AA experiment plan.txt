@@ -1,0 +1,27 @@
+7 Question types:
+1 rxfdg
+2 ew
+3 sfe
+4 sfd
+5 sdf
+6 sdf
+7 sdfs
+
+x topics
+for x * 7 questions
+
+x result pages p, one for each topic
+
+
+The experiment
+  Go over each question
+  do a google search with nltk preprocessing, spacy preprocessing and no preprocessing
+  
+  get the first y results (probably 10)
+  if topic page p is in the list:
+     score = y - ranking in the list
+  else:
+     score = 0
+  
+  what we want to measure:
+    increase and/or decrease in ranking in google of page p with respect to the different preprocessing methods
