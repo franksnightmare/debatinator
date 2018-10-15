@@ -2,7 +2,7 @@ import sys
 
 import questionLoader.loader as QLoader
 import questionWriter.writer as Qwriter
-import questionParser.parser as QParser
+import questionParser.parser2 as QParser
 
 import searcher.search as searcher
 import searcher.parse as parser
