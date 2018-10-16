@@ -117,5 +117,7 @@ class SearchResult:
     def __repr__(self):
         return self.__str__()
 
-def searchGoogle(site, keyword):
-    return GoogleSearch().search('site:' + site + ' arguments \"' + keyword + '\"', num_results = 10)
+def searchGoogle(keyword, site = None):
+    if site == None:
+        return GoogleSearch().search('arguments ' + keyword, num_results = 10)
+    return GoogleSearch().search('site:' + site + ' arguments ' + keyword, num_results = 10)

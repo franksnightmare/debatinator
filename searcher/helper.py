@@ -14,13 +14,14 @@ def divideResponses(responseA, responseB):
 	
 	print(count)
 	
-	responses = [{'result':None, 'site':None}]*(count['total'])
+	responses = [{'result':None, 'site':None, 'rank':0}]*(count['total'])
 	
 	i = 0
 	j = 0
 	for result in responseA.results:
 		responses[i]['result'] = result
 		responses[i]['site'] = 'procon.org'
+		responses[i]['rank'] = i + 1
 		i += 2
 		j += 1
 		if (j > count['B']):
@@ -31,6 +32,7 @@ def divideResponses(responseA, responseB):
 	for result in responseB.results:
 		responses[i]['result'] = result
 		responses[i]['site'] = 'prosancons.com'
+		responses[i]['rank'] = i + 1
 		i += 2
 		j += 1
 		if (j > count['A']):
