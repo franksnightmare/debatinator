@@ -15,6 +15,12 @@ import searcher.test as tester
 def main():
 	questions = QLoader.loadFile("questionFile.txt")
 	targets = QLoader.loadFile("targetFile.txt")
+	newTargets = []
+	for target in targets:
+		if ',' in target:
+			newTargets.append(target.split(','))
+		else:
+			newTargets.append([target])
 	
 	NLTKKeywords = nltkParser.parse(questions)
 	spacyKeywords = spacyParser.parse(questions)
@@ -31,9 +37,9 @@ def main():
 		for j in range(0, len(tally)):
 			try:
 				# Either check with a site included or no?
-				responseA = searcher.searchGoogle('procon.org', keywords[j])
+				responseA = searcher.searchGoogle(keywords[j], 'procon.org')
 				time.sleep(1)
-				responseB = searcher.searchGoogle('prosancons.com', keywords[j])
+				responseB = searcher.searchGoogle(keywords[j], 'prosancons.com')
 				time.sleep(1)
 				
 				# Not used
