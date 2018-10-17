@@ -1,6 +1,8 @@
 import sys
 import time
 
+import urllib2
+
 import questionLoader.loader as QLoader
 import questionWriter.writer as Qwriter
 import questionParser.parser as spacyParser
@@ -27,24 +29,29 @@ def main():
 		keywords = [questions[i], NLTKKeywords[i], spacyKeywords[i]]
 		
 		for j in range(0, len(tally)):
-			# Either check with a site included or no?
-			responseA = searcher.searchGoogle('procon.org', keywords[j])
-			time.sleep(5)
-			responseB = searcher.searchGoogle('prosancons.com', keywords[j])
-			time.sleep(5)
-			
-			# Not used
-			# response = searcher.searchGoogle(None, keywords[j])
-			
-			ranking = tester.getFirstHitRanking(responseA, responseB, targets[i])
-			
-			# Not used
-			# ranking = parser.getHitRanking(response, targets[i])
-			
-			tally[j] = ranking
-			
-			# just gotta sleep real good to avoid suspicion
-			time.sleep(10)
+			try:
+				# Either check with a site included or no?
+				responseA = searcher.searchGoogle('procon.org', keywords[j])
+				time.sleep(1)
+				responseB = searcher.searchGoogle('prosancons.com', keywords[j])
+				time.sleep(1)
+				
+				# Not used
+				# response = searcher.searchGoogle(None, keywords[j])
+				
+				ranking = tester.getFirstHitRanking(responseA, responseB, targets[i])
+				
+				# Not used
+				# ranking = parser.getHitRanking(response, targets[i])
+				
+				tally[j] = ranking
+				
+				# just gotta sleep real good to avoid suspicion
+				time.sleep(1)
+			except urllib2.HTTPError as err:
+				print(err)
+				print("They caught onto us!")
+				time.sleep(5)
 		
 		print(tally)
 		fstream.write(str(tally[0])+","+str(tally[1])+","+str(tally[2]))
