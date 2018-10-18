@@ -1,4 +1,5 @@
 import helper as helper
+import sys
 
 def getFirstHitRanking(responseA, responseB, url):
     responses = helper.divideResponses(responseA, responseB)
